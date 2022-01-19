@@ -1,0 +1,19 @@
+name: Lineage OS Building
+on: workflow_dispatch
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Clone the project
+        run: git clone https://github.com/peasoft/LineageOS-Autobuild.git --depth=1
+        shell: bash
+      
+      - name: Run build script
+        run: ${{ github.workspace }}/LineageOS-Autobuild/build.sh
+        shell: bash
+        
+      - name : Upload ROM
+        uses: actions/upload-artifact@master
+        with:
+          name: lineageos-build-oppo-A37
+          path: ~/android/lineage/out
