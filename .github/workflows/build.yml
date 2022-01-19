@@ -7,7 +7,11 @@ jobs:
       - name: Clone the project
         run: git clone https://github.com/peasoft/LineageOS-Autobuild.git --depth=1
         shell: bash
-      
+        
+      - name: Chmod build script
+        run: chmod +x ${{ github.workspace }}/LineageOS-Autobuild/build.sh
+        shell: bash
+        
       - name: Run build script
         run: ${{ github.workspace }}/LineageOS-Autobuild/build.sh
         shell: bash
