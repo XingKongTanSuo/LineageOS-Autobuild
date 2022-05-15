@@ -19,14 +19,14 @@ ccache -M 50G
 
 # Download codes
 cd ~/android/lineage
-repo init -u https://github.com/LineageOS/android.git -b cm-14.1
+repo init --depth=1 -u https://github.com/LineageOS/android.git -b cm-14.1
 
 echo "======start repo sync======"
-repo sync
+repo sync -c -f --no-tags --no-clone-bundle -j 8
 while [ $? = 1 ]; do
     echo "======sync failed, re-sync again======"
     sleep 3
-    repo sync
+    repo sync -c -f --no-tags --no-clone-bundle -j 8
 done
 
 git clone https://github.com/Jakesoso/android_device_oppo_A37.git -b cm14.1-test --depth=1 device/oppo/A37
