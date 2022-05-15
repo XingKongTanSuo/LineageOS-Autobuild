@@ -60,9 +60,8 @@ jobs:
           rm -rf .repo
           rm -rf device/oppo/A37/.github device/oppo/A37/build.sh device/oppo/A37/README.md
           mkdir treelog
-          tree -L 5 -o treelog/tree.txt
-          tree -L 5 -n -o treelog/treen.txt
-
+          tree -L 3 -o treelog/tree.txt
+          tree -L 3 -n -o treelog/treen.txt
         shell: bash
         
       - name: Space Post
@@ -71,6 +70,7 @@ jobs:
           echo "Space usage:"
           echo "======================="
           df -h
+        
       - name : Upload Logs
         uses: actions/upload-artifact@master
         with:
@@ -79,10 +79,11 @@ jobs:
       
       - name: Build Lineage OS
         run: |
+          cd lineage
           source build/envsetup.sh
           croot
           brunch A37
-        
+          
       - name : Upload ROM
         uses: actions/upload-artifact@master
         with:
