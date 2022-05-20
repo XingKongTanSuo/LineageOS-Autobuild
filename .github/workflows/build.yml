@@ -70,7 +70,7 @@ jobs:
           echo "Space usage:"
           echo "======================="
           df -h
-        
+      
       - name : Upload Logs
         uses: actions/upload-artifact@master
         with:
@@ -81,8 +81,11 @@ jobs:
         run: |
           cd lineage
           source build/envsetup.sh
-          croot
           brunch A37
+      
+      - name: Debug
+        if: ${{ failure() }}
+        uses: mxschmitt/action-tmate@v3
           
       - name : Upload ROM
         uses: actions/upload-artifact@master
