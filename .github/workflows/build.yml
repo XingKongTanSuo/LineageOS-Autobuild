@@ -81,7 +81,8 @@ jobs:
         run: |
           cd lineage
           source build/envsetup.sh
-          sudo -E lunch lineage_A37-user
+          lunch lineage_A37-user
+          make
       
       - name: Debug
         if: ${{ failure() }}
