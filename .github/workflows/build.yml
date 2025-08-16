@@ -24,7 +24,7 @@ jobs:
           sudo sh -c "echo Pin-Priority: -10 >> /etc/apt/preferences.d/nosnap.pref"
           sudo -E apt autoremove -y --purge adoptopenjdk* google* azure* ruby* php* apache* aspnet* cloud-* dbus dotnet* firebird* firefox* llvm* moby* mongodb* mono* msbuild* mssql* mysql* nginx* perl* postgresql* powershell* r-* rpm* temurin* x11* xserver* *-icon-theme git-* grub* gsettings* || true
           sudo -E apt-get update
-          sudo -E apt install bc bison build-essential ccache curl flex g++-multilib gcc-multilib git gnupg gperf imagemagick lib32ncurses5-dev lib32readline-dev lib32z1-dev liblz4-tool libncurses5 libncurses5-dev libsdl1.2-dev libssl-dev libxml2 libxml2-utils lzop pngcrush rsync schedtool squashfs-tools xsltproc zip zlib1g-dev openjdk-8-jdk wget tree -y
+          sudo -E apt install bc bison build-essential ccache curl flex g++-multilib gcc-multilib git gnupg gperf imagemagick lib32ncurses5-dev lib32readline-dev lib32z1-dev liblz4-tool libncurses5 libncurses5-dev libsdl1.2-dev libssl-dev libxml2 libxml2-utils lzop pngcrush rsync schedtool squashfs-tools xsltproc zip zlib1g-dev openjdk-11-jdk wget tree -y
           sudo -E apt-get -y autoremove --purge
           sudo -E apt-get clean
           sudo rm -rf /usr/local/lib/heroku /usr/local/lib/node_modules /usr/local/lib/android /usr/local/share/chromium /usr/share/dotnet /usr/local/share/phantomjs* /usr/local/share/*driver /usr/local/share/vcpkg /etc/mysql /etc/php /etc/skel /etc/apt/sources.list.d ~/.dotnet ~/runners/*.tgz
